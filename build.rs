@@ -6,7 +6,8 @@ use std::path::PathBuf;
 fn main() {
     // Tell cargo to tell rustc to link the system bzip2
     // shared library.
-    println!("cargo:rustc-link-lib=static=libnoiseprotocol.a");
+    println!("cargo:rustc-link-search=./");
+    println!("cargo:rustc-link-lib=static=noiseprotocol");
     // println!("cargo:include=./noise/");
     // println!("cargo:include=./");
 
@@ -17,6 +18,7 @@ fn main() {
         // The input header we would like to generate
         // bindings for.
         .header("noise/protocol.h")
+        .clang_arg("-I./")
         // Finish the builder and generate the bindings.
         .generate()
         // Unwrap the Result and panic on failure.
