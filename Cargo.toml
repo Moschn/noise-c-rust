@@ -1,0 +1,10 @@
+[package]
+name = "noise-c-rust"
+version = "0.1.0"
+authors = ["Moritz Schneider <moritzschneider@inf.ethz.ch>"]
+links = "noiseprotocol.a"
+build = "build.rs"
+
+
+[build-dependencies]
+bindgen = "*"
